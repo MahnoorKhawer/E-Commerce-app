@@ -1,0 +1,144 @@
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:ui_development/config/assets.dart';
+import 'package:ui_development/config/colors.dart';
+import 'package:ui_development/config/styles.dart';
+import 'package:ui_development/screens/authentication/login/login_form.dart';
+
+class AppDrawer extends StatefulWidget {
+  const AppDrawer({super.key});
+
+  @override
+  State<AppDrawer> createState() => _AppDrawerState();
+}
+
+class _AppDrawerState extends State<AppDrawer> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 80),
+      child: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          bottomRight: Radius.circular(350),
+        ),
+        child: Drawer(
+          backgroundColor: AppColors.primaryColor,
+          width: MediaQuery.of(context).size.width / 2,
+          key: _scaffoldKey,
+          child: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Drawer icon to close the drawer
+                Container(
+                  alignment: Alignment.topLeft,
+                  margin: const EdgeInsets.only(left: 16),
+                  child: InkWell(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(16.0),
+                    ),
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: SvgPicture.asset(
+                      SvgAssets.drawer,
+                      fit: BoxFit.scaleDown,
+                      // color: AppColors.black,
+                    ),
+                  ),
+                ),
+
+                // User info row
+                Container(
+                  padding:
+                  const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  child: Row(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Image.asset(
+                          ImageAssets.image55,
+                          width: 48,
+                          height: 64,
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Text(
+                        'Username',
+                        style: h4Bold13Black.copyWith(
+                          color: AppColors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                // Drawer fields
+                drawerField(() {
+                  Navigator.push(
+                    context,
+                    PageTransition(
+                      type: PageTransitionType.fade,
+                      child: const SignInForm(),
+                    ),
+                  );
+                }, 'I miei viaggi', Icons.usb_outlined),
+                drawerField(() {
+                  Navigator.push(
+                    context,
+                    PageTransition(
+                      type: PageTransitionType.fade,
+                      child: const SignInForm(),
+                    ),
+                  );
+                }, 'Notifiche', Icons.notifications_outlined),
+                drawerField(() {
+                  Navigator.push(
+                    context,
+                    PageTransition(
+                      type: PageTransitionType.fade,
+                      child: const SignInForm(),
+                    ),
+                  );
+                }, 'Preferiti', Icons.favorite_outline),
+
+                // Logout button
+                const Spacer(),
+                drawerField(() {
+                  // Handle logout logic
+                }, 'Logout', Icons.exit_to_app),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+Widget drawerField(route, text, icon) {
+  return Container(
+    margin: const EdgeInsets.only(bottom: 20, left: 28),
+    child: InkWell(
+      onTap: route,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Icon(icon, color: Colors.white),
+          Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: Text(
+              text,
+              style: text1TextStyle16.copyWith(color: AppColors.white),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
