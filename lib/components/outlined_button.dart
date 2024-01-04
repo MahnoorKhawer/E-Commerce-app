@@ -27,7 +27,7 @@ class PrimaryOutlinedButton extends StatelessWidget {
         style: OutlinedButton.styleFrom(
           side: const BorderSide(
             width: 2.0,
-            color: AppColors.warningColor, // Set the outlined color to red
+            color: AppColors.primaryColor, // Set the outlined color to red
           ),
           backgroundColor: primaryBtnColor, // Set the filled color to white
           shape: const RoundedRectangleBorder(

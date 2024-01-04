@@ -1,12 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ui_development/screens/authentication/login/login_screen.dart';
 
 import 'package:ui_development/config/assets.dart';
 import 'package:ui_development/config/colors.dart';
-import 'package:ui_development/screens/authentication/login/login_form.dart';
-import 'package:ui_development/screens/authentication/login/login_screen.dart';
+import 'package:ui_development/screens/authentication/signup/sign_up.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -19,7 +18,7 @@ class _SplashScreenState  extends State<SplashScreen> {
   void initState(){
     super.initState();
     Timer(Duration(seconds:4), ()=>
-        Navigator.push(context, MaterialPageRoute(builder:(context)=>SignInScreen())),);}
+        Navigator.push(context, MaterialPageRoute(builder:(context)=>SignUpScreen())),);}
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,7 +37,7 @@ class _SplashScreenState  extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset(ImageAssets.logo,
+                Image.asset(ImageAssets.newlogo,
                   width: 147,
                   height: 147,
                 ),

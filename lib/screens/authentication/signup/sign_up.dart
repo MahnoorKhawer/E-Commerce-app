@@ -4,27 +4,25 @@ import 'package:ui_development/components/social_buttons.dart';
 import 'package:ui_development/config/assets.dart';
 import 'package:ui_development/config/colors.dart';
 import 'package:ui_development/config/styles.dart';
-import 'package:ui_development/screens/authentication/forgotPassword/forgot_password.dart';
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+import 'package:ui_development/screens/authentication/login/login_screen.dart';
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  TextEditingController _name = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.white,
-        title: Text(
-          'Login',
-          style: h2Bold18Black,
-        ),
+        title: Text('Sign Up',style: h2Bold18Black,),
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -35,6 +33,26 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  TextFormField(
+                    controller: _name,
+                    keyboardType: TextInputType.name,
+                    decoration: InputDecoration(
+                      labelText: 'Name',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your name';
+                       //}// else if (!RegExp(r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$')
+                      //     .hasMatch(value)) {
+                      //   return 'Please enter a valid name';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: 10),
                   TextFormField(
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
@@ -83,12 +101,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => SetNewPassword(),
+                              builder: (context) => LoginScreen(),
                             ),
                           );
                         },
                         child: Text(
-                          'Forgot your password?',
+                          'Already have an account?',
                           style: TextStyle(
                             color: Colors.red,
                             decoration: TextDecoration.underline,
@@ -101,22 +119,20 @@ class _LoginScreenState extends State<LoginScreen> {
                   PrimaryOutlinedButton(
                     primaryBtnColor: AppColors.primaryColor,
                     primaryTextStyle: text1TextStyle16,
-                    btnText: 'Login',
+                    btnText: 'Sign Up',
                     btnPress: () {
                       if (_formKey.currentState!.validate()) {
-                        // Perform login logic here
-                        // For simplicity, navigate to a dummy next page
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => NextPage(),
-                          ) );
+                          MaterialPageRoute(builder: (context) => NextPage()),
+                        );
                       }
                     },
                   ),
                   SizedBox(height: 30),
                   Center(
                     child: Text(
-                      'Or login with social account?',
+                      'Or SignUp with social account?',
                       style: TextStyle(color: Colors.black),
                     ),
                   ),
@@ -169,21 +185,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
       ),
+
     );
   }
 }
-
-class NextPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Next Page'),
-      ),
-      body: Center(
-        child: Text('Welcome to the next page!'),
-      ),
-    );
-  }
-}
-

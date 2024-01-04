@@ -13,6 +13,7 @@ class ImageAssets {
   static const String image33= "$IMAGEPATH/image 33.png";
   static const String  image55= "$IMAGEPATH/image55.png";
   static const String logo= "$IMAGEPATH/logo.png";
+  static const String newlogo= "$IMAGEPATH/newlogo.png";
   static const String facebook= "$IMAGEPATH/facebook.png";
   static const String google= "$IMAGEPATH/google.png";
 }
@@ -21,7 +22,7 @@ class SvgAssets {
   static const String drawer = "$SVGPATH/drawer_menu.svg";
   static const String eyeClosed = "$SVGPATH/eye_closed.svg";
   static const String eyeOpened = "$SVGPATH/eye_opened.svg";
-  static const String backArrow = "$SVGPATH/icon_back_dark.svg";
+  static const String backArrow = "$SVGPATH/back.svg";
   static const String forwardArrow = "$SVGPATH/forward_arrow.svg";
   static const String circleWarning = "$SVGPATH/circle_warning.svg";
   static const String notification = "$SVGPATH/bell.svg";
