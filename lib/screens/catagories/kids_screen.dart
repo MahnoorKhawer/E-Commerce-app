@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:ui_development/config/colors.dart';
 import 'package:ui_development/screens/Main_Screen.dart';
-import 'package:ui_development/screens/bag_screen.dart';
-import 'package:ui_development/screens/favorite_screen.dart';
-import 'package:ui_development/screens/men_screen.dart';
-import 'package:ui_development/screens/profile_screen.dart';
-import 'package:ui_development/screens/shopping_screen.dart';
+import 'package:ui_development/screens/bag/bag_screen.dart';
+import 'package:ui_development/screens/catagories/men_screen.dart';
+import 'package:ui_development/screens/catagories/shopping_screen.dart';
+import 'package:ui_development/screens/favorite/favorite_screen.dart';
+import 'package:ui_development/screens/profile/profile_screen.dart';
 class KidsScreen extends StatefulWidget {
   const KidsScreen({super.key});
 
@@ -34,9 +34,7 @@ class _KidsScreenState extends State<KidsScreen> {
             hintText: 'Search...',
             hintStyle: TextStyle(color: AppColors.black),
           ),
-          onChanged: (value) {
-            // Handle search as the user types
-          },
+          onChanged: (value) {},
         )
             : Row(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -128,6 +126,7 @@ class _KidsScreenState extends State<KidsScreen> {
                       SizedBox(width: 10,),
                       TextButton(child: Text('New',style: TextStyle(color: AppColors.black,fontSize: 18)),
                         onPressed: () {  },),
+                      SizedBox(width: 52,),
                       Image(image: AssetImage('assets/images/kidnew.png'),fit: BoxFit.fill,),
                     ],
                   ),
@@ -143,6 +142,7 @@ class _KidsScreenState extends State<KidsScreen> {
                       SizedBox(width: 10,),
                       TextButton(child: Text('Clothes',style: TextStyle(color: AppColors.black,fontSize: 18)),
                         onPressed: () {  },),
+                      SizedBox(width: 52,),
                       Image(image: AssetImage('assets/images/kidclothes.png'),fit: BoxFit.fill,),
                     ],
                   ),
@@ -158,6 +158,7 @@ class _KidsScreenState extends State<KidsScreen> {
                       SizedBox(width: 10,),
                       TextButton(child: Text('Shoes',style: TextStyle(color: AppColors.black,fontSize: 18)),
                         onPressed: () {  },),
+                      SizedBox(width: 22,),
                       Image(image: AssetImage('assets/images/kidsshoes.png'),fit: BoxFit.fill,),
                     ],
                   ),

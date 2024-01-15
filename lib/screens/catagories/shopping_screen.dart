@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:ui_development/config/colors.dart';
 import 'package:ui_development/screens/Main_Screen.dart';
-import 'package:ui_development/screens/bag_screen.dart';
-import 'package:ui_development/screens/favorite_screen.dart';
-import 'package:ui_development/screens/kids_screen.dart';
-import 'package:ui_development/screens/profile_screen.dart';
-import 'package:ui_development/screens/men_screen.dart';
+import 'package:ui_development/screens/bag/bag_screen.dart';
+import 'package:ui_development/screens/catagories/kids_screen.dart';
+import 'package:ui_development/screens/catagories/men_screen.dart';
+import 'package:ui_development/screens/favorite/favorite_screen.dart';
+import 'package:ui_development/screens/profile/profile_screen.dart';
 class MyShoppingCart extends StatefulWidget {
   const MyShoppingCart({super.key});
 
@@ -34,9 +34,7 @@ class _MyShoppingCartState extends State<MyShoppingCart> {
             hintText: 'Search...',
             hintStyle: TextStyle(color: AppColors.black),
           ),
-          onChanged: (value) {
-            // Handle search as the user types
-          },
+          onChanged: (value) {},
         )
             : Row(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -55,7 +53,7 @@ class _MyShoppingCartState extends State<MyShoppingCart> {
                 });
               },
               icon: Icon(Icons.search, color: AppColors.black),
-            )
+            ),
           ],
         ),
         centerTitle: true,
@@ -73,25 +71,6 @@ class _MyShoppingCartState extends State<MyShoppingCart> {
               : Container(),
         ],
       ),
-      // appBar: AppBar(
-      //   leading: IconButton(
-      //     onPressed: () {
-      //       Navigator.pop(context);
-      //     },
-      //     icon: Icon(Icons.arrow_back,color: AppColors.black,),
-      //
-      //   ),
-      //   title: Row(
-      //     mainAxisAlignment: MainAxisAlignment.end,
-      //     children: [
-      //       Text('Categories',style: TextStyle(color: AppColors.black),),
-      //     SizedBox(width: 80,),
-      //     IconButton(
-      //         onPressed: (){},
-      //         icon: Icon(Icons.search,color: AppColors.black,))],
-      //   ),
-      //   centerTitle: true,
-      // ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),

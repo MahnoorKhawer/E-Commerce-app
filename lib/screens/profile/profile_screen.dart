@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ui_development/config/colors.dart';
 import 'package:ui_development/screens/Main_Screen.dart';
-import 'package:ui_development/screens/bag_screen.dart';
-import 'package:ui_development/screens/favorite_screen.dart';
-import 'package:ui_development/screens/shopping_screen.dart';
+import 'package:ui_development/screens/bag/bag_screen.dart';
+import 'package:ui_development/screens/catagories/shopping_screen.dart';
+import 'package:ui_development/screens/favorite/favorite_screen.dart';
+import 'package:ui_development/screens/profile/order/my-orders.dart';
+import 'package:ui_development/screens/profile/payment/payment_method.dart';
+import 'package:ui_development/screens/profile/reviews/reviews_screen.dart';
+import 'package:ui_development/screens/profile/setting/setting_info.dart';
+import 'package:ui_development/screens/profile/shipping/shipping_address.dart';
 class MyProfile extends StatefulWidget {
   const MyProfile({super.key});
 
@@ -35,7 +40,7 @@ class _MyProfileState extends State<MyProfile> {
                   child: ListTile(
                     leading: CircleAvatar(
                       radius: 30,
-                      backgroundImage: AssetImage('assets/images/logo.png'),
+                      backgroundImage: AssetImage('assets/images/profile.png'),
                     ),
                     title: Text('Matilda Brown',style: TextStyle(color: AppColors.black),),
                     subtitle: Text('matildabrown@gmail.com',style: TextStyle(color: AppColors.hintTextColor),),
@@ -47,7 +52,9 @@ class _MyProfileState extends State<MyProfile> {
                     title: Text('My orders',style: TextStyle(color: AppColors.black),),
                     subtitle: Text('Already have 12 orders',style: TextStyle(color: AppColors.hintTextColor),),
                     trailing: IconButton(
-                      onPressed: () {  },
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder:(context)=>MyOrder()));
+                      },
                       icon: Icon(Icons.arrow_forward_ios,color: AppColors.hintTextColor,),),
                   ),
                 ),
@@ -57,7 +64,9 @@ class _MyProfileState extends State<MyProfile> {
                     title: Text('Shipping addresses',style: TextStyle(color: AppColors.black),),
                     subtitle: Text('3 addresses',style: TextStyle(color: AppColors.hintTextColor),),
                     trailing: IconButton(
-                      onPressed: () {  },
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder:(context)=>ShippingAddress()));
+                      },
                       icon: Icon(Icons.arrow_forward_ios,color: AppColors.hintTextColor,),),
                   ),
                 ),
@@ -67,7 +76,9 @@ class _MyProfileState extends State<MyProfile> {
                     title: Text('Payment methods',style: TextStyle(color: AppColors.black),),
                     subtitle: Text('Visa **34',style: TextStyle(color: AppColors.hintTextColor),),
                     trailing: IconButton(
-                      onPressed: () {  },
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder:(context)=>PaymentMethod()));
+                      },
                       icon: Icon(Icons.arrow_forward_ios,color: AppColors.hintTextColor,),),
                   ),
                 ),
@@ -87,7 +98,9 @@ class _MyProfileState extends State<MyProfile> {
                     title: Text('My reviews',style: TextStyle(color: AppColors.black),),
                     subtitle: Text('Review for 4 items',style: TextStyle(color: AppColors.hintTextColor),),
                     trailing: IconButton(
-                      onPressed: () {  },
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder:(context)=>ReviewPage()));
+                      },
                       icon: Icon(Icons.arrow_forward_ios,color: AppColors.hintTextColor,),),
                   ),
                 ),
@@ -97,7 +110,9 @@ class _MyProfileState extends State<MyProfile> {
                     title: Text('Settings',style: TextStyle(color: AppColors.black),),
                     subtitle: Text('Notifications, password',style: TextStyle(color: AppColors.hintTextColor),),
                     trailing: IconButton(
-                      onPressed: () {  },
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder:(context)=>MySetting()));
+                      },
                       icon: Icon(Icons.arrow_forward_ios,color: AppColors.hintTextColor,),),
                   ),
                 ),
