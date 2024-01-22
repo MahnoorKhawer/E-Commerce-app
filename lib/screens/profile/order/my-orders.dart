@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_development/config/colors.dart';
+import 'package:ui_development/screens/profile/order/order-details.dart';
+import 'package:ui_development/screens/profile/profile_screen.dart';
 
 class MyOrder extends StatefulWidget {
   const MyOrder({super.key});
@@ -19,7 +21,7 @@ class _MyOrderState extends State<MyOrder> {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder:(context)=>MyProfile()));
           },
           icon: Icon(Icons.arrow_back, color: AppColors.black),
         ),
@@ -121,7 +123,9 @@ class _MyOrderState extends State<MyOrder> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            TextButton(onPressed: (){}, child: Text('Details',style: TextStyle(color: AppColors.black),)),
+                            TextButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder:(context)=>OrderDetail()));
+                            }, child: Text('Details',style: TextStyle(color: AppColors.black),)),
                             Text('Delivered',style: TextStyle(color: AppColors.successGreenColor),),
                           ],
                         ),
@@ -167,7 +171,9 @@ class _MyOrderState extends State<MyOrder> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            TextButton(onPressed: (){}, child: Text('Details',style: TextStyle(color: AppColors.black),)),
+                            TextButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder:(context)=>OrderDetail()));
+                            }, child: Text('Details',style: TextStyle(color: AppColors.black),)),
                             Text('Delivered',style: TextStyle(color: AppColors.successGreenColor),),
                           ],
                         ),
@@ -213,7 +219,9 @@ class _MyOrderState extends State<MyOrder> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            TextButton(onPressed: (){}, child: Text('Details',style: TextStyle(color: AppColors.black),)),
+                            TextButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder:(context)=>OrderDetail()));
+                            }, child: Text('Details',style: TextStyle(color: AppColors.black),)),
                             Text('Delivered',style: TextStyle(color: AppColors.successGreenColor),),
                           ],
                         ),
@@ -259,7 +267,9 @@ class _MyOrderState extends State<MyOrder> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            TextButton(onPressed: (){}, child: Text('Details',style: TextStyle(color: AppColors.black),)),
+                            TextButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder:(context)=>OrderDetail()));
+                            }, child: Text('Details',style: TextStyle(color: AppColors.black),)),
                             Text('Delivered',style: TextStyle(color: AppColors.successGreenColor),),
                           ],
                         ),
@@ -305,7 +315,9 @@ class _MyOrderState extends State<MyOrder> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            TextButton(onPressed: (){}, child: Text('Details',style: TextStyle(color: AppColors.black),)),
+                            TextButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder:(context)=>OrderDetail()));
+                            }, child: Text('Details',style: TextStyle(color: AppColors.black),)),
                             Text('Delivered',style: TextStyle(color: AppColors.successGreenColor),),
                           ],
                         ),

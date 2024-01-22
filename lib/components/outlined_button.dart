@@ -32,7 +32,7 @@ class PrimaryOutlinedButton extends StatelessWidget {
           backgroundColor: primaryBtnColor, // Set the filled color to white
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
-              Radius.circular(8),
+              Radius.circular(24),
             ),
           ),
           elevation: 2,

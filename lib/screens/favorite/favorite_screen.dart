@@ -7,6 +7,7 @@ import 'package:ui_development/config/colors.dart';
 import 'package:ui_development/screens/Main_Screen.dart';
 import 'package:ui_development/screens/bag/bag_screen.dart';
 import 'package:ui_development/screens/catagories/shopping_screen.dart';
+import 'package:ui_development/screens/favorite/favorite_grid_screen.dart';
 import 'package:ui_development/screens/profile/profile_screen.dart';
 class MyFavorites extends StatefulWidget {
   const MyFavorites({super.key});
@@ -17,6 +18,7 @@ class MyFavorites extends StatefulWidget {
 
 class _MyFavoritesState extends State<MyFavorites> {
   bool isSearching = false;
+  bool isSelected = false;
   TextEditingController searchController = TextEditingController();
   int myindex=0;
   @override
@@ -71,7 +73,7 @@ class _MyFavoritesState extends State<MyFavorites> {
               SizedBox(height: 10,),
               Container(
                 width: double.infinity,
-                height: 40,
+                height: 30,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
@@ -86,11 +88,11 @@ class _MyFavoritesState extends State<MyFavorites> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0),
                             ),
-                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
                           ),
                           child: Text(
                             'Summer',
-                            style: TextStyle(color: Colors.white, fontSize: 16),
+                            style: TextStyle(color: Colors.white, fontSize: 14),
                           ),
                         ),
                         ElevatedButton(
@@ -101,11 +103,11 @@ class _MyFavoritesState extends State<MyFavorites> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0),
                             ),
-                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
                           ),
                           child: Text(
                             'T-Shirts',
-                            style: TextStyle(color: Colors.white, fontSize: 16),
+                            style: TextStyle(color: Colors.white, fontSize: 14),
                           ),
                         ),
                         ElevatedButton(
@@ -116,11 +118,11 @@ class _MyFavoritesState extends State<MyFavorites> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0),
                             ),
-                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
                           ),
                           child: Text(
                             'Shirts',
-                            style: TextStyle(color: Colors.white, fontSize: 16),
+                            style: TextStyle(color: Colors.white, fontSize: 14),
                           ),
                         ),
                         ElevatedButton(
@@ -131,11 +133,11 @@ class _MyFavoritesState extends State<MyFavorites> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0),
                             ),
-                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
                           ),
                           child: Text(
                             'Fashion',
-                            style: TextStyle(color: Colors.white, fontSize: 16),
+                            style: TextStyle(color: Colors.white, fontSize: 14),
                           ),
                         ),
                       ],
@@ -159,12 +161,86 @@ class _MyFavoritesState extends State<MyFavorites> {
                     ),
                     Row(
                       children: [
-                        IconButton(onPressed: (){}, icon: Icon(Icons.compare_arrows,color: AppColors.black,)),
+                        IconButton(
+                            onPressed: () {
+                              showModalBottomSheet(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return SingleChildScrollView(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(20.0),
+                                          topRight: Radius.circular(20.0),
+                                        ),
+                                      ),
+                                      child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Column(
+                                           crossAxisAlignment: CrossAxisAlignment.start,
+                                           children: [
+                                             Center(child: Text('Sort by',style: TextStyle(color: AppColors.black,fontSize: 18),)),
+                                             SizedBox(height: 20,),
+                                             TextButton(
+                                                 onPressed: (){
+                                                   setState(() {
+                                                     AppColors.primaryColor;
+                                                   });
+                                                 },
+                                                 child: Text('Popular',style: TextStyle(color: AppColors.black,fontSize: 18),),),
+                                             SizedBox(height: 20,),
+                                             TextButton(
+                                               onPressed: (){
+                                                 setState(() {
+                                                   AppColors.primaryColor;
+                                                 });
+                                               },
+                                               child: Text('Newest',style: TextStyle(color: AppColors.black,fontSize: 18),),),
+                                             SizedBox(height: 20,),
+                                             TextButton(
+                                               onPressed: (){
+                                                 setState(() {
+                                                   AppColors.primaryColor;
+                                                 });
+                                               },
+                                               child: Text('Customer review',style: TextStyle(color: AppColors.black,fontSize: 18),),),
+                                             SizedBox(height: 20,),
+                                             TextButton(
+                                               onPressed: () {
+                                               },
+                                               style: ButtonStyle(
+                                                 backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+                                                 foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                                               ),
+                                               child: Text(
+                                                 'Price: lowest to high',
+                                                 style: TextStyle(color: Colors.white, fontSize: 18),
+                                               ),
+                                             ),
+                                             SizedBox(height: 20,),
+                                             TextButton(
+                                             onPressed: () {},
+                                             child: Text(
+                                              'Price: highest to low',
+                                              style: TextStyle(color: isSelected ? AppColors.white : AppColors.black, fontSize: 18),
+                                             ),
+                                             ),
+                                           ],
+                                          )
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                            icon: Icon(Icons.compare_arrows,color: AppColors.black,)),
                         SizedBox(width: 5,),
                         Text('Price: lowest to high',style: TextStyle(color: AppColors.black,fontSize: 12),),
                       ],
                     ),
-                    IconButton(onPressed: (){}, icon: Icon(Icons.list,color: AppColors.black,))
+                    IconButton(onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder:(context)=>FavoriteGrid()));
+                    }, icon: Icon(Icons.list,color: AppColors.black,))
                   ],
                 ),
               ),
@@ -375,7 +451,7 @@ class _MyFavoritesState extends State<MyFavorites> {
                                 children: [
                                   Text('3900 Rs.',style: TextStyle(color: AppColors.black,fontSize: 14),),
                                   SizedBox(width: 16,),
-                                  RatingBar.builder(
+                                 RatingBar.builder(
                                     itemSize: 12,
                                     initialRating: 5,
                                     minRating: 0,

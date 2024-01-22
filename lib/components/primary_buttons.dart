@@ -25,7 +25,7 @@ class PrimaryButton extends StatelessWidget {
       decoration: BoxDecoration(
         color: color,
         borderRadius: const BorderRadius.all(
-          Radius.circular(12.0),
+          Radius.circular(24.0),
         ),
         gradient: LinearGradient(
           begin: const Alignment(1.00, 0.05),
